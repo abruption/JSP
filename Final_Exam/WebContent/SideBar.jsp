@@ -100,10 +100,9 @@
         </ul>
       </div>
     </nav>
-<!-- End of SideBar Area -->
-	</div>
+    </div>
 </div>
-
+<!-- End of SideBar Area -->
 
 </body>
 </html>

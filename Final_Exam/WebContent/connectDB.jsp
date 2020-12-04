@@ -13,7 +13,6 @@
 </head>
 <body>
 <%
-
 	Connection conn = null;
 	
 	String url 		= "jdbc:mysql://localhost:3306/jspDB?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC";
@@ -22,7 +21,6 @@
 	
 	Class.forName("com.mysql.jdbc.Driver");
 	conn = DriverManager.getConnection(url, user, password);
-
 %>
 </body>
 </html>

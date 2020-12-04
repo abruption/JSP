@@ -68,17 +68,12 @@
 	<div class="sb-page-header-subtitle" id="content">'코로나19' 국내 종합상황판은 질병관리본부의 공공API로 제작됩니다.</div> 
 	<br>
 	
-	<div class="sb-page-header-subtitle">최종 업데이트 시간 : <h id="korea-createdt">${createDt }</h></div>
-	
-	<!--[ 사이트 실시간 시계 소스 -->     
-	<div class="sb-page-header-subtitle">현재 접속시간 : <h id="clock"><%=sdf.format(date) %></h></div>
-	</div>
-	</div>
-	</div>
+	<div class="sb-page-header-subtitle">최종 업데이트 시간 : ${createDt }</div>
+	<div class="sb-page-header-subtitle">현재 접속시간 : <%=sdf.format(date) %></div>
+	</div></div></div>
 	
 	
-	<div class="card mb-4">
-	<!-- Assets/chart/Kor-chart-area.js 에서 수정가능합니다. -->     
+	<div class="card mb-4">   
     <div class="card-header">일간 국내 코로나바이러스 현황(수동업데이트)</div>
      <div class="card-body">
       <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
@@ -184,9 +179,6 @@
 		</div>
      </div>
 <!-- End of Card Section -->
-
-
-
 
 </body>
 </html>

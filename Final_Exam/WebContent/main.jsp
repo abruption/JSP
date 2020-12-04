@@ -12,21 +12,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
-
-
     <!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="css/stylesheet" href="dark-mode.css">
+	<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
 	
 	<!-- Custom fonts for this template-->
-    <link href="vendor/font
-    awesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:2
-    00,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	
 	 <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <link rel="css/stylesheet" href="dark-mode.css">
     
     <style>
       .bd-placeholder-img {
@@ -62,13 +58,12 @@
 	}
       
     </style>
-  </head>
-  
+    
+</head>
 
-  
 <body>
 
-
+<!-- JSP include File  -->
 <jsp:include page="Header.jsp"></jsp:include>
 
 <jsp:include page="SideBar.jsp"></jsp:include>
@@ -76,10 +71,11 @@
 <jsp:include page="MainContent.jsp"></jsp:include>
       
 <jsp:include page="Footer.jsp"></jsp:include>           
+<!-- End of JSP include File  -->
       
 
 
-
+<!-- Script File List -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
@@ -88,7 +84,8 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="js/moment.js"></script>
-
 <script src="js/dark-mode-switch.min.js"></script>
+<!-- End of Script File List -->
+
 </body>
 </html>
