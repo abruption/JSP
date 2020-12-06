@@ -24,16 +24,20 @@
     <link href="css/dashboard.css" rel="stylesheet">
     <link rel="css/stylesheet" href="dark-mode.css">
     
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
         -webkit-user-select: none;
+        
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
       }
 
+   
+   
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -63,6 +67,7 @@
 
 <body>
 
+
 <!-- JSP include File  -->
 <jsp:include page="Header.jsp"></jsp:include>
 
@@ -75,9 +80,10 @@
       
 
 
+
 <!-- Script File List -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 <script src="js/dashboard.js"></script>

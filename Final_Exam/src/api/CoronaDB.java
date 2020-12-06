@@ -23,7 +23,6 @@ public class CoronaDB {
 	}
 
 	public static void main(String[] args) {
-		int page = 1;	// 페이지 초기값 
 		String decideCnt = null;
 		String examCnt = null;
 		String resutlNegCnt = null;
@@ -34,8 +33,7 @@ public class CoronaDB {
 		Date now = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		String Date = sdf.format(now);
-		System.out.println(Date);
-		
+
 		try{
 			while(true){
 				// parsing할 url 지정(API 키 포함해서)
@@ -102,11 +100,10 @@ public class CoronaDB {
 		PreparedStatement pstat 	= null;
 		ResultSet 		  rs		= null;
 		
-		String sql1 = "select * from corona where Date=? ";
+		String sql1 = "select * from corona where Date=?";
 		String sql2 = "insert into corona values (?,?,?,?,?,?,?)";
 		
 		String DateChk = null;
-		int result 	 = 0;
 		
 		pstat = conn.prepareStatement(sql1);
 		pstat.setString(1, DateChk);
@@ -124,10 +121,7 @@ public class CoronaDB {
 		pstat.setString(4, deathCnt);
 		pstat.setString(5, clearCnt);
 		pstat.setString(6, Date);
-		pstat.setNString(7, createDt);
-			
-		// 쿼리실행
-		result = pstat.executeUpdate();
+		pstat.setString(7, createDt);
 		}
 		
 		rs.close();

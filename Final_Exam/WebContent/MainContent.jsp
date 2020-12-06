@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
 <body>
 
 <%@ include file="connectDB.jsp" %>
@@ -18,6 +19,7 @@
 	Date date = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // Access Time
 	SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMdd");	// Lastest Data Time
+	String today = sdf2.format(date);
 	
 	// Get Yesterday date
 	date = new Date(date.getTime()+(1000*60*60*24*-1));
@@ -25,12 +27,11 @@
 	String yesterday = dSdf.format(date);
 
 	
-	
 	Statement stat = null;
 	ResultSet rs = null;
 
-	String sql = "select * from corona where Date="+yesterday;	// 질병관리청 업데이트 전
-	/* String sql = "select * from corona where Date="+sdf2.format(date); */
+	/* String sql = "select * from corona where Date="+yesterday;	// 질병관리청 업데이트 전 */
+	String sql = "select * from corona where Date="+today; 
 
 	stat = conn.createStatement();
 	rs = stat.executeQuery(sql);
@@ -62,10 +63,10 @@
 		<div class="container-fluid">
 		<div class="sb-page-header-content py-5">
 		<h1 class="sb-page-header-title">
-		<div class="sb-page-header-title">
+		<div class="sb-page-header-title"></div>
 		<span id="title">국내 종합상황판</span>
 		</h1>
-	<div class="sb-page-header-subtitle" id="content">'코로나19' 국내 종합상황판은 질병관리본부의 공공API로 제작됩니다.</div> 
+	<div class="sb-page-header-subtitle" id="content">'코로나19' 국내 종합상황판은 공공데이터 포털의 보건복지부 Open API를 기반으로 합니다.</div> 
 	<br>
 	
 	<div class="sb-page-header-subtitle">최종 업데이트 시간 : ${createDt }</div>
@@ -74,34 +75,15 @@
 	
 	
 	<div class="card mb-4">   
-    <div class="card-header">일간 국내 코로나바이러스 현황(수동업데이트)</div>
+    <div class="card-header">일간 국내 코로나바이러스 현황표</div>
      <div class="card-body">
       <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
       <canvas id="korAreaChart" width="374" height="240" class="chartjs-render-monitor" style="display: block; width: 374px; height: 240px;"></canvas></div>
-       <div class="card-footer">질병관리본부의 오전브리핑을 기준으로 제작되었습니다.</div>   </div> </div>
+       <div class="card-footer">해당 자료는 질병관리청의 오전 브리핑을 기준으로 합니다.</div>   </div> </div>
 	
-	<!-- Card Body Area -->
-	<div class="col-xl-3 col-md-6 mb-4">
-    	<div class="card border-left-primary shadow h-100 py-2">
-    		<div class="card-body">
-    			<div class="row no-gutters align-items-center">
-   					 <div class="col mr-2">
-    					<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-    				</div>
-    				<div class="col-auto">
-    					<i class="fas fa-calendar fa-2x text-gray-300"></i>
-                    </div>
-               </div>
-           </div>
-      </div>
-  </div>
-	<!-- End of Card Body Aread -->
-	
-	
-	
-	
-	
+		<!-- Chart.js Call -->
+		<script src="js/korAreaChart.js"></script>
+		<!-- End of Chart.js -->
 	
 <!-- Card Section -->
 <h2>Card Section</h2>
@@ -109,7 +91,7 @@
 		 <div class="col-lg-6 mb-4">
 			<div class="card bg-primary text-white shadow">
 				<div class="card-body">
-					Primary
+					국내 검사중
 				<div class="text-white-50 small">#4e73df</div>
 				</div>
 			</div>
