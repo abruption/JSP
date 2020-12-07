@@ -14,11 +14,11 @@
 	<link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/dashboard/">
 	
 	<!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 	
 	 <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="css/stylesheet" href="dark-mode.css">
     
     
@@ -34,8 +34,7 @@
         user-select: none;
 	    }
 	
-   
-   
+
    
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
