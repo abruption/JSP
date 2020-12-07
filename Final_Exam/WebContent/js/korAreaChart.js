@@ -34,12 +34,11 @@ var myChart = new Chart(ctx, {
     type: "line",
     data: {
         labels: [
-        
-		  "12월 2일(+511)",
           "12월 3일(+540)",
           "12월 4일(+629)", 
           "12월 5일(+583)",
-          "12월 6일(+631)"
+          "12월 6일(+631)",
+		  "12월 7일(+615)"
         ],
 
 
@@ -56,7 +55,7 @@ var myChart = new Chart(ctx, {
             pointHoverBorderColor: "rgba(0, 97, 242, 1)",
             pointHitRadius: 10,
             pointBorderWidth: 2,
-            data: [35163, 35703, 36332, 36915, 37546]
+            data: [35703, 36332, 36915, 37546, 38161]
         }]
     },
     options: {

@@ -1,7 +1,3 @@
-<%@ page import="java.sql.*" %>
-<%@ page import="org.w3c.dom.*" %>
-<%@ page import="javax.xml.parsers.*" %>
-<%@ page import="java.text.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -11,6 +7,7 @@
   	<title>Corona-19 :: Demo Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
     
     <!-- Bootstrap core CSS -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +22,7 @@
     <link rel="css/stylesheet" href="dark-mode.css">
     
     
+    
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -34,8 +32,9 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-      }
-
+	    }
+	
+   
    
    
       @media (min-width: 768px) {

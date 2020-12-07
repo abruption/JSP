@@ -1,9 +1,10 @@
-<%@ page import="java.sql.*" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.Connection" %>
 <%@ page import="org.w3c.dom.*" %>
 <%@ page import="javax.xml.parsers.*" %>
-<%@ page import="java.text.*" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.Locale" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,9 @@
 	Date date = new Date();
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // Access Time
 	SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMdd");	// Lastest Data Time
+	String detailtoday = sdf.format(date);
 	String today = sdf2.format(date);
+	
 	
 	// Get Yesterday date
 	date = new Date(date.getTime()+(1000*60*60*24*-1));
@@ -29,25 +32,32 @@
 	
 	Statement stat = null;
 	ResultSet rs = null;
-
-	/* String sql = "select * from corona where Date="+yesterday;	// 질병관리청 업데이트 전 */
+	
 	String sql = "select * from corona where Date="+today; 
+	String ysql = "select * from corona where Date="+yesterday;	
 
 	stat = conn.createStatement();
 	rs = stat.executeQuery(sql);
 
 	int result = 0;
-	String createDt = null;
-
 	
 	if(rs.next()){
 		result = 1;
-		createDt = rs.getString("createDt");
 		request.setAttribute("createDt", rs.getString("createDt"));
-		/* request.setAttribute("empname", rs.getString("empname"));
-		request.setAttribute("empdept", rs.getString("empdept"));
-		request.setAttribute("empjob", rs.getString("empjob"));
-		request.setAttribute("empsal", rs.getInt("empsal")); */ 
+		request.setAttribute("decideCnt", rs.getInt("decideCnt"));
+		request.setAttribute("examCnt", rs.getInt("examCnt"));
+		request.setAttribute("clearCnt", rs.getInt("clearCnt"));
+		request.setAttribute("deathCnt", rs.getInt("deathCnt")); 
+	}
+	
+	rs = stat.executeQuery(ysql);
+	
+	if(rs.next()){
+		result = 1;
+		request.setAttribute("ydecideCnt", rs.getInt("decideCnt"));
+		request.setAttribute("yexamCnt", rs.getInt("examCnt"));
+		request.setAttribute("yclearCnt", rs.getInt("clearCnt"));
+		request.setAttribute("ydeathCnt", rs.getInt("deathCnt")); 
 	}
 
 	request.setAttribute("result", result);
@@ -70,7 +80,7 @@
 	<br>
 	
 	<div class="sb-page-header-subtitle">최종 업데이트 시간 : ${createDt }</div>
-	<div class="sb-page-header-subtitle">현재 접속시간 : <%=sdf.format(date) %></div>
+	<div class="sb-page-header-subtitle">현재 접속시간 : <%=detailtoday %></div>
 	</div></div></div>
 	
 	
@@ -86,81 +96,64 @@
 		<!-- End of Chart.js -->
 	
 <!-- Card Section -->
-<h2>Card Section</h2>
+<!-- <h2>Card Section</h2> -->
 	<div class="row">
 		 <div class="col-lg-6 mb-4">
 			<div class="card bg-primary text-white shadow">
-				<div class="card-body">
+				<div class="card-body" style="font-weight: bold; font-size:2.0em;">
 					국내 검사중
-				<div class="text-white-50 small">#4e73df</div>
+				<div class="text-white-50 small"><b>${examCnt }명(+${examCnt-yexamCnt }명)</b></div>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-lg-6 mb-4">
-			<div class="card bg-success text-white shadow">
-				<div class="card-body">
-					Success
-				<div class="text-white-50 small">#1cc88a</div>
+			<div class="card bg-warning text-white shadow">
+				<div class="card-body" style="font-weight: bold; font-size:2.0em;">
+					국내 확진환자
+				<div class="text-white-50 small"><b>${decideCnt }명(+${decideCnt-ydecideCnt }명)</b></div>
 				</div>
 			</div>
 		</div>
                                 
 		<div class="col-lg-6 mb-4">
 			<div class="card bg-info text-white shadow">
-				<div class="card-body">
-					Info
-				<div class="text-white-50 small">#36b9cc</div>
+				<div class="card-body" style="font-weight: bold; font-size:2.0em;">
+					국내 격리해제
+				<div class="text-white-50 small"><b>${clearCnt }명(+${clearCnt-yclearCnt }명)</b></div>
 				</div>
 			</div>
 		</div>
                                 
-		<div class="col-lg-6 mb-4">
-			<div class="card bg-warning text-white shadow">
-				<div class="card-body">
-					Warning
-				<div class="text-white-50 small">#f6c23e</div>
-				</div>
-			</div>
-		</div>
+		
                                 
 		<div class="col-lg-6 mb-4">
 			<div class="card bg-danger text-white shadow">
-				<div class="card-body">
-					Danger
-				<div class="text-white-50 small">#e74a3b</div>
+				<div class="card-body" style="font-weight: bold; font-size:2.0em;">
+					국내 사망자
+				<div class="text-white-50 small"><b>${deathCnt }명(+${deathCnt-ydeathCnt }명)</b></div>
 				</div>
 			</div>
 		</div>
+
                                 
-		<div class="col-lg-6 mb-4">
-			<div class="card bg-secondary text-white shadow">
-				<div class="card-body">
-					Secondary
-				<div class="text-white-50 small">#858796</div>
-				</div>
-			</div>
-		</div>
-                                
-		<div class="col-lg-6 mb-4">
+		<!-- <div class="col-lg-6 mb-4">
 			<div class="card bg-light text-black shadow">
 				<div class="card-body">
 					Light
 				<div class="text-black-50 small">#f8f9fc</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
                                 
-		<div class="col-lg-6 mb-4">
-			<div class="card bg-dark text-white shadow">
-				<div class="card-body">
-					Dark
-				<div class="text-white-50 small">#5a5c69</div>
-				</div>
-			</div>
-		</div>
      </div>
 <!-- End of Card Section -->
+
+
+
+
+
+
 
 </body>
 </html>

@@ -103,7 +103,8 @@ public class CoronaDB {
 		String sql1 = "select * from corona where Date=?";
 		String sql2 = "insert into corona values (?,?,?,?,?,?,?)";
 		
-		String DateChk = null;
+		String DateChk = Date;
+		int result = 0;
 		
 		pstat = conn.prepareStatement(sql1);
 		pstat.setString(1, DateChk);
@@ -113,8 +114,9 @@ public class CoronaDB {
 		if(rs.next()){
 			// 테이블에 정보가 등록되어 있는 경우
 			DateChk = "duplication";
+			System.out.println(DateChk);
 		} else {
-			pstat = conn.prepareStatement(sql2);
+		pstat = conn.prepareStatement(sql2);
 		pstat.setString(1, decideCnt);
 		pstat.setString(2, examCnt);
 		pstat.setString(3, resutlNegCnt);
@@ -122,6 +124,9 @@ public class CoronaDB {
 		pstat.setString(5, clearCnt);
 		pstat.setString(6, Date);
 		pstat.setString(7, createDt);
+		
+		// 쿼리 실행
+		result = pstat.executeUpdate();
 		}
 		
 		rs.close();
