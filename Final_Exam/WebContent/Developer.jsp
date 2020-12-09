@@ -1,12 +1,10 @@
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="java.util.Date" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="ko">
-  <head>
-  	<title>Corona-INFO :: Demo Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Corona-INFO :: Demo Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     
     <!-- Bootstrap core CSS -->
@@ -21,8 +19,8 @@
     <link href="css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="css/stylesheet" href="dark-mode.css">
     
-    
-    
+</head>
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -60,23 +58,57 @@
 	}
       
     </style>
-    
-</head>
 
 <body>
+
 
 
 <!-- JSP include File  -->
 <jsp:include page="Header.jsp"></jsp:include>
 
 <jsp:include page="SideBar.jsp"></jsp:include>
-
-<jsp:include page="MainContent.jsp"></jsp:include>
       
-<jsp:include page="Footer.jsp"></jsp:include>           
-<!-- End of JSP include File  -->
-      
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 
+<br>
+<h1><span class="badge bg-primary text-light">Developer</span></h1>
+<br>
+
+<!-- 개발환경 Field -->
+<div class="card">
+  <div class="card-header">
+    <h6>개발환경</h6>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+    <p>Front-End</p>
+      <footer class="blockquote-footer"><a href="https://getbootstrap.kr">Bootstrap</a></footer>
+      <footer class="blockquote-footer"><a href="chartjs.org">ChartJS</a></footer>
+      <footer class="blockquote-footer"><a href="momentjs.com">MomentJS</a></footer><br>
+    
+      <p>Back-End</p>
+      <footer class="blockquote-footer">JSP</footer>
+      <footer class="blockquote-footer"><a href="tomcat.apache.org">Apache Tomcat 9.0.37</a></footer>
+      <footer class="blockquote-footer"><a href="https://www.mysql.com">MySQL 8.0.21 Homebrew</a></footer>
+      <footer class="blockquote-footer"><a href="https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043376">공공데이터 포털(data.go.kr) 보건복지부_코로나19 감염_현황 API</a></footer><br>
+    </blockquote>
+  </div>
+</div>
+<!-- End of 개발환경 Field -->
+<br>
+
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">인하공업전문대학 컴퓨터정보과 201644091 이연국</h5>
+    <p class="card-text">본 사이트는 JSP 과목의 프로젝트 결과물입니다.</p>
+    
+  </div>
+  <div class="card-footer text-muted"><a href="mailto:hashcode@kakao.com" class="btn btn-primary">Contact Us</a></div></div>
+
+<br>
+<jsp:include page="Footer.jsp"></jsp:include>     
+
+</main>      
 
 
 <!-- Script File List -->

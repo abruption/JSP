@@ -13,15 +13,41 @@
 <title>Insert title here</title>
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-<body>
 
+<script>
+setInterval("go_time()", 1000);
+function go_time(){
+	 
+	 var now = new Date();
+	 
+	 var year = now.getFullYear(); //년
+	 var month = now.getMonth()+1; //월
+	 var day = now.getDate();  //일
+	 var hour = now.getHours();  //시
+	 var min = now.getMinutes();  //분
+	 var sec = now.getSeconds();  //초
+	 var ampm = null;
+	 
+	 if(day < 10){
+		 day = "0" + day;
+	 }
+	 
+	 if (min < 10){
+		min = "0" + min; 
+	 } if (sec < 10){
+	    sec = "0" + sec; 
+		}
+
+	 
+	 document.getElementById("clock").innerHTML 
+	 = year+"-"+ month+"-"+day+" "+hour+":"+min+":"+sec	 
+	}
+</script>
 <%@ include file="connectDB.jsp" %>
 <%
 	Date date = new Date();
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); // Access Time
-	SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyMMdd");	// Lastest Data Time
-	String detailtoday = sdf.format(date);
-	String today = sdf2.format(date);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");	// Lastest Data Time
+	String today = sdf.format(date);
 	
 	
 	// Get Yesterday date
@@ -80,8 +106,9 @@
 	<br>
 	
 	<div class="sb-page-header-subtitle">최종 업데이트 시간 : ${createDt }</div>
-	<div class="sb-page-header-subtitle">현재 접속시간 : <%=detailtoday %></div>
-	</div></div></div>
+	<div class="sb-page-header-subtitle">실시간 시간 : <span id="clock"></span></div>
+	</div>
+	</div></div>
 	
 	
 	<div class="card mb-4">   
@@ -137,14 +164,7 @@
 		</div>
 
                                 
-		<!-- <div class="col-lg-6 mb-4">
-			<div class="card bg-light text-black shadow">
-				<div class="card-body">
-					Light
-				<div class="text-black-50 small">#f8f9fc</div>
-				</div>
-			</div>
-		</div> -->
+		<br>
                                 
      </div>
 <!-- End of Card Section -->

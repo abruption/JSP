@@ -33,12 +33,12 @@ var ctx = document.getElementById("korAreaChart");
 var myChart = new Chart(ctx, {
     type: "line",
     data: {
-        labels: [
-          "12월 3일(+540)",
-          "12월 4일(+629)", 
+        labels: [ 
           "12월 5일(+583)",
           "12월 6일(+631)",
-		  "12월 7일(+615)"
+		  "12월 7일(+615)",
+		  "12월 8일(+592)",
+		  "12월 9일(+686)"
         ],
 
 
@@ -55,7 +55,7 @@ var myChart = new Chart(ctx, {
             pointHoverBorderColor: "rgba(0, 97, 242, 1)",
             pointHitRadius: 10,
             pointBorderWidth: 2,
-            data: [35703, 36332, 36915, 37546, 38161]
+            data: [36915, 37546, 38161, 38755, 39432]
         }]
     },
     options: {
